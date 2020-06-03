@@ -93,23 +93,25 @@ export default class Quiz extends React.Component {
     render() {
         return (
             <div className='quiz'>
-                <h1>Please fill the quiz</h1>
                 {
                     this.state.isFinished
                         ? 
                             <FinishedQuiz></FinishedQuiz>
                         : 
-                            <div className='quiz-wrapper'>
-                                <QuizItem
-                                    key={this.state.quiz[this.state.activeQuestionPosition].id}
-                                    question={this.state.quiz[this.state.activeQuestionPosition].question}
-                                    answers={this.state.quiz[this.state.activeQuestionPosition].answers}
-                                    answerState={this.state.answerState}
-                                    questionPosition={this.state.activeQuestionPosition}
-                                    questionsCount={this.state.quiz.length}
-                                    onAnswerClick={this.onAnswerHandler}
-                                ></QuizItem>
-                            </div>
+                            <React.Fragment>
+                                <h1>Please fill the quiz</h1>
+                                <div className='quiz-wrapper'>
+                                    <QuizItem
+                                        key={this.state.quiz[this.state.activeQuestionPosition].id}
+                                        question={this.state.quiz[this.state.activeQuestionPosition].question}
+                                        answers={this.state.quiz[this.state.activeQuestionPosition].answers}
+                                        answerState={this.state.answerState}
+                                        questionPosition={this.state.activeQuestionPosition}
+                                        questionsCount={this.state.quiz.length}
+                                        onAnswerClick={this.onAnswerHandler}
+                                    ></QuizItem>
+                                </div>
+                            </React.Fragment>
                 }
             </div>
         );

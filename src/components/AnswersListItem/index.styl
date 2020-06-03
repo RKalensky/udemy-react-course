@@ -1,62 +1,62 @@
 @import '../../config/colorSchema.styl'
 
 .answers-list-item
-    position relative
-    margin-bottom 5px
-    padding 7px 0 7px 23px
-    cursor pointer
-    transition background-color, color .4s 0s ease-in-out
+    position: relative
+    margin-bottom: 5px
+    padding: 7px 0 7px 23px
+    cursor: pointer
+    transition: background-color, color .4s 0s ease-in-out
     &:before
     &:after
-        position absolute
+        position: absolute
     &:before
-        content '>'
-        left 7px
+        content: '>'
+        left: 7px
     &:after
-        content ''
-        top 100%
-        left 0
-        width 100%
-        border-bottom 1px solid $colorLightGray
+        content: ''
+        top: 100%
+        left: 0
+        width: 100%
+        border-bottom: 1px solid $colorLightGray
 
     &:hover,
     &.pending,
     &.correct,
     &.incorrect
-        border-radius 5px
-        font-weight 700
+        border-radius: 5px
+        font-weight: 700
 
     &:hover
-        background-color $colorLightGray
-        color $colorGray
+        background-color: $colorLightGray
+        color: $colorGray
 
     &:hover:after,
     &.pending:after,
     &.correct:after,
     &.incorrect:after
-        content none
+        content: none
 
     &.pending
-        animation-name pulseColor
-        animation-duration 1.5s
-        animation-timing-function ease-in-out
-        animation-fill-mode forwards
-        animation-iteration-count infinite
+        animation-name: pulseColor
+        animation-duration: 1.5s
+        animation-timing-function: ease-in-out
+        animation-fill-mode: forwards
+        animation-iteration-count: infinite
 
     &.correct
-        background-color rgba($colorGreen, .3)
+        background-color: rgba($colorGreen, .3)
 
     &.incorrect
-        background-color rgba($colorRed, .3)
+        background-color: rgba($colorRed, .3)
 
 @keyframes pulseColor {
     0% {
-        background-color transparent
+        background-color: transparent
     }
     50% {
-        background-color rgba($colorYellow, .2)
+        background-color: rgba($colorYellow, .2)
     }
     to {
-        background-color transparent
+        background-color: transparent
     }
 }
