@@ -1,0 +1,28 @@
+@import '../node_modules/css-reset-and-normalize/stylus/reset-and-normalize.styl';
+@import '../node_modules/css-reset-and-normalize/stylus/link-reset.styl';
+@import '../node_modules/css-reset-and-normalize/stylus/button-reset.styl';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import './config/colorSchema.styl'
+
+html
+  height 100%
+
+body
+  height 100%
+  margin 0
+  font 400 16px / 1.2 Roboto
+  color $colorGray
+  -webkit-font-smoothing antialiased
+  -moz-osx-font-smoothing grayscale
+
+code
+  font-family source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+#root
+  height 100%
+
+main
+  display flex
+  flex-direction column
+  height 100%

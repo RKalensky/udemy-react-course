@@ -1,10 +1,10 @@
 import React from 'react';
-import classes from './index.module.css';
+import './index.styl';
 
 export default (props) => {
-    const activeClass = props.answerState && props.answerState[props.answer.id]  ? classes[props.answerState[props.answer.id].currentClass] : '';
+    const activeClass = props.answerState && props.answerState[props.answer.id]  ? props.answerState[props.answer.id].currentClass : '';
 
-    const classesNames = [classes.AnswersListItem, activeClass].join(' ');
+    const classesNames = ['answers-list-item', activeClass].join(' ');
     return (
         <li
             className={classesNames}

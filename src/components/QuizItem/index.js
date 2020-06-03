@@ -1,13 +1,13 @@
 import React from 'react';
-import classes from './index.module.css';
+import './index.styl';
 import AnswersList from '../AnswersList';
 
 export default (props) => {
     return (
-        <div className={classes.QuizItem}>
-            <p className={classes.QuizItemCaption}>
+        <div className='quiz-item'>
+            <p className='quiz-item-caption'>
                 <span>{props.questionPosition + 1}. {props.question}</span>
-                <span className={classes.Counter}>{props.questionPosition + 1} of {props.questionsCount}</span>
+                <span className='counter'>{props.questionPosition + 1} of {props.questionsCount}</span>
             </p>
 
             <AnswersList

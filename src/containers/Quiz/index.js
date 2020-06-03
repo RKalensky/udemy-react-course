@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './index.module.css';
+import './index.styl';
 import QuizItem from '../../components/QuizItem';
 import FinishedQuiz from '../../components/FinishedQuiz';
 import { promisifyWithDelay } from '../../utils/delayPromise';
@@ -92,14 +92,14 @@ export default class Quiz extends React.Component {
 
     render() {
         return (
-            <div className={classes.Quiz}>
+            <div className='quiz'>
                 <h1>Please fill the quiz</h1>
                 {
                     this.state.isFinished
                         ? 
                             <FinishedQuiz></FinishedQuiz>
                         : 
-                            <div className={classes.QuizWrapper}>
+                            <div className='quiz-wrapper'>
                                 <QuizItem
                                     key={this.state.quiz[this.state.activeQuestionPosition].id}
                                     question={this.state.quiz[this.state.activeQuestionPosition].question}
