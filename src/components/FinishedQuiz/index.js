@@ -1,13 +1,29 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import './index.styl';
 
 export default (props) => {
+    const overallResults = Object.values(props.results).reduce((acc, curr) => {
+        return acc += curr === 'correct' ? 1 : 0;
+    }, 0);
+
     return (
         <div className='finished-quiz'>
             <h1>Grats! you've passed that awesome quiz</h1>
-            <p>You've got 1 of 2 right answers</p>
+            <p>You've got {overallResults} of {props.quiz.length} right answers</p>
+            <ul>
+                { props.quiz.map((item, index) => {
+                    return (
+                        <li 
+                            key={item.id}
+                            className={props.results[item.id]}
+                        >
+                            {index + 1}. {item.question}
+                        </li>
+                    )
+                }) }
+            </ul>
             <div>
-                <button>Want to retry?</button>
+                <button onClick={props.onRetryClick}>Want to retry?</button>
             </div>
         </div>
     )

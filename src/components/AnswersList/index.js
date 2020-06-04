@@ -4,7 +4,7 @@ import AnswersListItem from '../AnswersListItem';
 export default (props) => {
     return (
         <ul>
-            { props.answers.map((item) => {
+            { props.answers.map((item, index) => {
                 return (
                     <AnswersListItem
                         key={item.id}

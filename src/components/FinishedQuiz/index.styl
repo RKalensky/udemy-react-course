@@ -5,8 +5,19 @@
 
 p
     font-size: 25px
-    margin-bottom: 30px
+    margin-bottom: 20px
 
+ul
+    margin-bottom: 20px
+    font-size: 20px
+    text-align: left
+
+li
+    &.correct
+        background-color: rgba($colorGreen, .1)
+    &.incorrect
+        background-color: rgba($colorRed, .1)
+        
 button
     width: 180px
     height: 44px
@@ -15,3 +26,4 @@ button
     color: $colorWhite
     font: 700 18px / 1.2 Roboto
     border: none
+    cursor: pointer

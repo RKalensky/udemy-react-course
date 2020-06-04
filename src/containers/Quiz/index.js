@@ -5,10 +5,15 @@ import FinishedQuiz from '../../components/FinishedQuiz';
 import { promisifyWithDelay } from '../../utils/delayPromise';
 import { cloneSimpleStructure } from '../../utils/cloneSimpleStructures';
 
-const initialState = {
+const quizInitialState = {
+    results: {},
     answerState: null,
     activeQuestionPosition: 0,
     isFinished: false,
+}
+
+const initialState = {
+    ...quizInitialState,
     quiz: [
         {
             id: 1,
@@ -31,6 +36,17 @@ const initialState = {
                 {text: '7', id: 3},
                 {text: '10', id: 4}
             ]
+        },
+        {
+            id: 3,
+            question: 'What is the result of (2+2)*2?',
+            rightAnswerId: 1,
+            answers: [
+                {text: '8', id: 1},
+                {text: '6', id: 2},
+                {text: '7', id: 3},
+                {text: '10', id: 4}
+            ]
         }
     ],
 }
@@ -44,11 +60,20 @@ export default class Quiz extends React.Component {
     }
 
     checkAnswer = (answerId) => {
-        const correctAnswerId = this.state.quiz[this.state.activeQuestionPosition].rightAnswerId;
-        this.setState({
-            answerState: {
-                [answerId]: {
-                    currentClass: correctAnswerId === answerId ? 'correct' : 'incorrect'
+        const currentQuestion = this.state.quiz[this.state.activeQuestionPosition];
+        const currentQuestionId = currentQuestion.id;
+        const correctAnswerId = currentQuestion.rightAnswerId;
+        const result = correctAnswerId === answerId ? 'correct' : 'incorrect';
+        this.setState((prevState) => {
+            return {
+                results: {
+                    ...prevState.results,
+                    [currentQuestionId]: result
+                },
+                answerState: {
+                    [answerId]: {
+                        currentClass: result
+                    }
                 }
             }
         });
@@ -70,8 +95,13 @@ export default class Quiz extends React.Component {
                     answerState: null
                 }
             });
-            console.log('answered');
         }
+    }
+
+    reset() {
+        this.setState({
+            ...quizInitialState
+        });
     }
 
     onAnswerHandler = async (answerId) => {
@@ -85,9 +115,12 @@ export default class Quiz extends React.Component {
             });
     
             await this.checkAnswerPromisify(answerId);
-            console.log('checkAnswerPromisify');
             await this.startNextQuestionPromisify();
         }
+    }
+
+    onRetry = () => {
+        this.reset();
     }
 
     render() {
@@ -96,7 +129,11 @@ export default class Quiz extends React.Component {
                 {
                     this.state.isFinished
                         ? 
-                            <FinishedQuiz></FinishedQuiz>
+                            <FinishedQuiz
+                                results={this.state.results}
+                                quiz={this.state.quiz}
+                                onRetryClick={this.onRetry}
+                            ></FinishedQuiz>
                         : 
                             <React.Fragment>
                                 <h1>Please fill the quiz</h1>
