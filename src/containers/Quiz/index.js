@@ -55,8 +55,8 @@ export default class Quiz extends React.Component {
     constructor(props) {
         super(props);
         this.state = cloneSimpleStructure(initialState);
-        this.checkAnswerPromisify = promisifyWithDelay(this.checkAnswer);
-        this.startNextQuestionPromisify = promisifyWithDelay(this.startNextQuestion, 1500);
+        this.checkAnswerPromisify = promisifyWithDelay(this.checkAnswer, 2000);
+        this.startNextQuestionPromisify = promisifyWithDelay(this.startNextQuestion, 1000);
     }
 
     checkAnswer = (answerId) => {
