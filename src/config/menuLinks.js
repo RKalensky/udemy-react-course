@@ -13,7 +13,7 @@ export default [
     },
     {
         id: 'createQuiz',
-        to: '/Quiz Creator',
+        to: '/quiz-creator',
         label: 'Create Quiz',
         exact: false
     }
