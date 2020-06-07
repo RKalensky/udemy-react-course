@@ -1,0 +1,20 @@
+@import '../../../config/colorSchema.styl';
+
+$viewWidth = 380px
+
+.menu
+    position: fixed
+    height: 100%
+    width: $viewWidth + 500px
+    transform: translateX(- @width)
+    z-index: 45
+    transition: transform .5s cubic-bezier(0.18, 0.89, 0.28, 1.5);
+    background: $colorGray
+
+    &.opened
+        transform: translateX(- @width + $viewWidth)
+
+    & > *
+        width: $viewWidth
+        margin: 0 0 0 auto
+        padding: 90px 20px 20px

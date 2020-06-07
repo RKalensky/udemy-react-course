@@ -1,0 +1,66 @@
+@import '../../../config/colorSchema.styl';
+
+$toggleMenuHeight = 32px
+$toggleMenuWidth = 34px
+$toggleMenuHight = 4px
+$paddingTop = 5px
+
+.menu-toggle
+    position: fixed
+    top: 30px
+    left: @top
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    width: $toggleMenuWidth
+    height: $toggleMenuHeight
+    padding: $paddingTop 0
+    cursor: pointer
+    z-index: 50
+    overflow: hidden
+
+    span
+        display block
+        height $toggleMenuHight
+        background-color: $colorGray
+        transform-origin: center center
+
+    &:not(.opened):hover
+        span
+            box-shadow: 1px 1px 3px 0 rgba($colorGray, .5)
+    
+    &.opened
+        span
+            background-color: $colorWhite
+            &:nth-of-type(1)
+                animation: animateMenuOpenFirsSpan .5s .25s ease-in-out forwards
+            &:nth-of-type(2)
+                transform: translateX(-150%)
+                transition: transform .25s ease-in-out
+            &:nth-of-type(3)
+                animation: animateMenuOpenLastSpan .5s .25s ease-in-out forwards
+            
+    
+    @keyframes animateMenuOpenFirsSpan {
+        0% {
+            transform: translateY(0)
+        }
+        50% {
+            transform: translateY($toggleMenuHeight / 2 - $toggleMenuHight / 2 - $paddingTop)
+        }
+        100% {
+            transform: translateY($toggleMenuHeight / 2 - $toggleMenuHight / 2 - $paddingTop) rotate(45deg)
+        }
+    }
+
+    @keyframes animateMenuOpenLastSpan {
+        0% {
+            transform: translateY(0)
+        }
+        50% {
+            transform: translateY(($toggleMenuHeight / 2 - $toggleMenuHight / 2 - $paddingTop) * -1)
+        }
+        100% {
+            transform: translateY(($toggleMenuHeight / 2 - $toggleMenuHight / 2 - $paddingTop) * -1) rotate(-45deg)
+        }
+    }

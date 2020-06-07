@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import Button from '../Button'
 import './index.styl';
 
 export default (props) => {
@@ -23,7 +24,11 @@ export default (props) => {
                 }) }
             </ul>
             <div>
-                <button onClick={props.onRetryClick}>Want to retry?</button>
+                <Button
+                    onClickHandler={props.onRetryClick}
+                >
+                    Want to retry?
+                </Button>
             </div>
         </div>
     )
