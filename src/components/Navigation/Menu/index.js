@@ -1,9 +1,10 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import './index.styl';
 import MenuItem from '../MenuItem';
 import Backdrop from '../../Backdrop';
+import menuLinks from '../../../config/menuLinks';
 
-const links = [1, 2, 3];
+const links = menuLinks
 
 export default (props) => {
     const cls = [
@@ -18,12 +19,15 @@ export default (props) => {
             { isOpened && <Backdrop></Backdrop> }
             <nav className={ cls.join(' ') }>
                 <ul>
-                    { links.map((item, index) => {
+                    { links.map((item) => {
                         return (
                             <MenuItem
-                                key={index}
+                                key={item.id}
+                                to={item.to}
+                                exact={item.exact}
+                                onClickHandler={props.closeMenuHandler}
                             >
-                                { `Link ${item}` }
+                                { item.label }
                             </MenuItem>
                         )
                     }) }

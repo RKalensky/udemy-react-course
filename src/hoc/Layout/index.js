@@ -19,6 +19,12 @@ export default class Layout extends React.Component {
         })
     }
 
+    closeMenu = () => {
+        this.setState({
+            isMenuOpened: false
+        })
+    }
+
     setAdditionalMenuClasses() {
         return [this.setOpenClass()];
     }
@@ -36,6 +42,7 @@ export default class Layout extends React.Component {
             <main className='layout'>
                 <Menu
                     additionalClasses={this.setAdditionalMenuClasses()}
+                    closeMenuHandler={this.closeMenu}
                 ></Menu>
                 <MenuToggle
                     onClickHandler={this.toggleMenuHandler}
