@@ -1,0 +1,13 @@
+@import '../../config/colorSchema.styl'
+
+.quiz-list
+    li
+        margin-bottom: 7px
+        padding: 6px 10px
+        background-image: linear-gradient(to bottom, rgba(0,0,0,0), $colorLightGray)
+        border-radius: 0 8px 8px 8px
+        box-shadow: 4px 4px 5px 0 rgba($colorGray, .3)
+        transform-origin: top left
+        transition: transform .2s ease-in-out
+        &:hover
+            transform: scale(1.05)
