@@ -1,4 +1,4 @@
-const promisifyWithDelay = (cb, delay = 2500) => {
+const debounce = (cb, delay = 2500) => {
     let timeoutId = null;
     return (...args) => {
         if (timeoutId) {
@@ -13,4 +13,4 @@ const promisifyWithDelay = (cb, delay = 2500) => {
     }
 }
 
-export { promisifyWithDelay };
+export { debounce };
