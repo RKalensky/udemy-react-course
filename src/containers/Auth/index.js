@@ -42,10 +42,10 @@ export default class Auth extends React.Component {
 
     updateFormValidState() {
         const isFormValid = Object.values(this.state.formControls).every(({ valid, typing }) => valid && !typing);
-        this.setState({isFormValid});
+        this.setState({ isFormValid });
     }
 
-    async onInputChange({ id, inputType, validationMethod }, event) {
+    async onInputChange({ id, validationMethod }, event) {
         const { target: { value } } = event;
         this.updateStateOnChange({ id, value });
         if (validationMethod) {
