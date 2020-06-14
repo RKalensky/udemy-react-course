@@ -3,17 +3,24 @@
 .finished-quiz
     text-align: center
 
-p
-    font-size: 25px
-    margin-bottom: 20px
+    p
+        font-size: 25px
+        margin-bottom: 20px
 
-ul
-    margin-bottom: 20px
-    font-size: 20px
-    text-align: left
+    ul
+        margin-bottom: 20px
+        font-size: 20px
+        text-align: left
 
-li
-    &.correct
-        background-color: rgba($colorGreen, .1)
-    &.incorrect
-        background-color: rgba($colorRed, .1)
+    li
+        &.correct
+            background-color: rgba($colorGreen, .1)
+        &.incorrect
+            background-color: rgba($colorRed, .1)
+    
+    .buttons-wrapper
+        display: flex
+        justify-content: center
+        >
+            *:not(:last-child)
+                margin-right: 30px

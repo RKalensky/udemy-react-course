@@ -1,6 +1,7 @@
 import React from 'react';
-import Button from '../Button'
+import Button from '../UI/Button'
 import './index.styl';
+import { Link } from 'react-router-dom';
 
 export default (props) => {
     const overallResults = Object.values(props.results).reduce((acc, curr) => {
@@ -23,12 +24,19 @@ export default (props) => {
                     )
                 }) }
             </ul>
-            <div>
+            <div className='buttons-wrapper'>
                 <Button
                     onClickHandler={props.onRetryClick}
                 >
                     Want to retry?
                 </Button>
+                <Link to='/'>
+                    <Button
+                        onClickHandler={props.onRetryClick}
+                    >
+                        Back to list
+                    </Button>
+                </Link>
             </div>
         </div>
     )
