@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.styl';
 import MenuItem from '../MenuItem';
-import Backdrop from '../../Backdrop';
+import Backdrop from '../../UI/Backdrop';
 import menuLinks from '../../../config/menuLinks';
 
 const links = menuLinks

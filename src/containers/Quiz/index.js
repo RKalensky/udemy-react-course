@@ -2,7 +2,7 @@ import React from 'react';
 import './index.styl';
 import QuizItem from '../../components/QuizItem';
 import FinishedQuiz from '../../components/FinishedQuiz';
-import { promisifyWithDelay } from '../../utils/delayPromise';
+import { debounce } from '../../utils/debounce';
 import { cloneSimpleStructure } from '../../utils/cloneSimpleStructures';
 
 const quizInitialState = {
@@ -55,8 +55,8 @@ export default class Quiz extends React.Component {
     constructor(props) {
         super(props);
         this.state = cloneSimpleStructure(initialState);
-        this.checkAnswerPromisify = promisifyWithDelay(this.checkAnswer, 2000);
-        this.startNextQuestionPromisify = promisifyWithDelay(this.startNextQuestion, 1000);
+        this.checkAnswerPromisify = debounce(this.checkAnswer, 2000);
+        this.startNextQuestionPromisify = debounce(this.startNextQuestion, 1000);
     }
 
     checkAnswer = (answerId) => {

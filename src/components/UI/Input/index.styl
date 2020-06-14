@@ -1,0 +1,40 @@
+@import '../../../config/colorSchema.styl'
+
+.brand-input
+    position relative
+    width: 100%
+    label
+        right: 100%
+        margin-right: 8px
+    label
+    .error-message
+    .error-message:before
+        position: absolute
+        top: 50%
+        transform: translateY(-50%)
+    input
+        width: 100%
+    label
+        white-space: nowrap
+    .error-message
+        left: 100%
+        width: 260px
+        margin-left: 25px
+        padding: 7px 10px
+        border-radius: 6px
+        box-shadow: 1px 1px 4px 0 $colorDarkRed
+        text-align: left
+        word-break: break-word
+        font: 300 11px / 1 Roboto
+        background-color: rgba($colorDarkRed, .6)
+        color: $colorWhite
+        &:before
+            content: '<'
+            right: 100%
+            margin-right: 7px
+            font-size: 20px
+            color: $colorDarkRed
+    &.invalid
+        input
+        label
+            color: $colorDarkRed

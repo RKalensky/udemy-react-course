@@ -1,0 +1,18 @@
+@import '../../../config/colorSchema.styl';
+
+.brand-button
+    min-width: 180px
+    min-height: 44px
+    padding: 10px 25px
+    border-radius: 15px
+    background-color: $colorGray2
+    color: $colorWhite
+    font: 700 18px / 1.2 Roboto
+    text-align: center
+    border: none
+    cursor: pointer    
+
+    &:disabled
+        opacity: .3
+        cursor: not-allowed
+        pointer-events: none
