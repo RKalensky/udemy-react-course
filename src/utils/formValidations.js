@@ -15,5 +15,5 @@ const isFilledInValidation = (data) => {
 export default {
     emailValidation: debounce(emailValidation, 1500),
     passwordValidation: debounce(passwordValidation, 1500),
-    isFilledInValidation: debounce(isFilledInValidation, 1500)
+    isFilledInValidation
 }
